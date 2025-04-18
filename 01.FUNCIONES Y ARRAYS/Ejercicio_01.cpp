@@ -16,17 +16,6 @@ void CargarNotasEstudiantes(int vector[], int tamanio){
    }
    
 }
-void Buscar(int vector[],int tamanio,int filtro){
-   int numeroEncontrado;
-   for (int i = 0; i < tamanio; i++)
-   {
-      if(vector[i] == filtro){
-         cout << vector[i];
-         break;
-      }
-   }
-   
-}
 int Promedio(int vector[],int tamanio){
    int acumulador = 0;
    for (int i = 0; i < tamanio; i++)
@@ -57,7 +46,11 @@ int main()
    CargarNotasEstudiantes(estudiantes,tamanioEstudiantes);
    cout << "Ingrese una Numero para buscar la nota: " << endl;
    cin >> filtro;
-   Buscar(estudiantes,tamanioEstudiantes,filtro);
+   if(filtro >= 1 && filtro <= tamanioEstudiantes){
+      cout << "La nota en la posición:" << filtro << "es:" << estudiantes[filtro-1] << endl;
+   }else{
+      cout << "Número fuera de rango. Debe estar entre 1 y 78" << endl;
+   }
    NotaMayorAlPromedio(estudiantes,tamanioEstudiantes);
    return 0;
 }
