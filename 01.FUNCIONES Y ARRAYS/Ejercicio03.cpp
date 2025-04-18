@@ -1,7 +1,8 @@
 #include <iostream>
 #include <locale>
 using namespace std;
-// Una persona desea registrar los gastos realizados durante un mes. Ha definido que los gastos se pueden categorizar en:
+// Una persona desea registrar los gastos realizados durante un mes. 
+// Ha definido que los gastos se pueden categorizar en:
 
 // ┌────┬─────────────────┐
 // │ ID │ Nombre Categoría│
