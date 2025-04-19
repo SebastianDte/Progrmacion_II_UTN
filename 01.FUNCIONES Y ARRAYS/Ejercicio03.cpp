@@ -32,6 +32,45 @@ using namespace std;
 // C) La cantidad de categorías de gasto que no hayan registrado movimientos.
 // D) Por cada día, la cantidad de gastos que se hayan registrado. Sólo mostrar aquellos registros de días que hayan registrado gastos.
 
+void puntoA(int acuCategoria[], string categorias[]){
+   int mayor = acuCategoria[0];
+   string categoriasMayor = categorias[0];
+   for (int i = 1; i < 10 ; i++)
+   {
+      if(acuCategoria[i] > mayor){
+         mayor = acuCategoria[i];
+         categoriasMayor = categorias[i];
+      }
+   }
+   cout << "La categoria con mayor gastos es " << categoriasMayor << " con un total de: $" << mayor << endl;
+}
+void puntoB(int acuCategoria[], string categorias[]){
+   cout << "Total de Gastos por Categoria" << endl;
+   for (int i = 0; i < 10; i++)
+   {
+      cout << categorias[i] << ": $" << acuCategoria[i] << endl;
+   }
+}
+void puntoC(int acuCategoria[]){
+   int contador = 0;
+   for (int i = 0; i < 10; i++)
+   {
+      if(acuCategoria[i] == 0){
+         contador++;
+      }
+   }
+   cout << "Cantidad de categorias sin gastos: " << contador << endl;
+}
+void puntoD(int gastosPorDia[]){
+   cout << "Cantidad de Gastos por Dia" << endl;
+   for (int i = 0; i < 31; i++)
+   {
+      if(gastosPorDia[i] > 0){
+         cout << "Dia " << i+1 << ": " << gastosPorDia[i] << endl;
+      }
+   }
+}
+
 int main()
 {
    setlocale(LC_ALL, "es_ES.UTF-8");
@@ -40,24 +79,24 @@ int main()
 
    string categorias[10] = {"Servicios","Alimentación","Limpieza","Transporte","Educación","Salud","Ocio","Impuestos","Vestimenta","Inversiones"};
    int acuCategoria[10] = {};
+   int gastosPorDia[31] = {};
    float monto = 0;
    int dia;
    while (true)
    {
       cout << "Ingrese el Número de Día(1-31)" << endl;
       cin >> dia ;
-      if(dia > 1 && dia < 31){
+      if(dia >= 1 && dia <= 31){
          cout << "Ingrese el ID de la Categoria (1 - 10)";
          int auxCategoria;
          cin >> auxCategoria;
          if(auxCategoria >= 1 && auxCategoria <=10){
-            cout << "Ingrese el Importe de Gato" << endl;
+            cout << "Ingrese el Importe del Gasto" << endl;
             cin>>monto;
             if(monto > 0){
-             // A) La categoría de gasto que mayor dinero se haya destinado y cuál es dicha categoría.
-             acuCategoria[auxCategoria-1] += monto;
-
-            }else{
+               gastosPorDia[dia-1]+=monto;
+               acuCategoria[auxCategoria-1] += monto;
+               }else{
                cout << "Monto Ingresado no puede ser negativo" << endl;
             }
          }else{
@@ -70,18 +109,9 @@ int main()
       }
    }
 
-   //Punto A
-   int mayor = acuCategoria[0];
-   string categoriasMayor = categorias[0];
-   for (int i = 1; i < 10 ; i++)
-   {
-      if(acuCategoria[i] > mayor){
-         mayor = acuCategoria[i];
-         categoriasMayor = categorias[i];
-      }
-   }
-   cout << "La categoria con mayor gasto es " << categoriasMayor << " con un total de: $" << mayor << endl;
-   
-
+   puntoA(acuCategoria, categorias);
+   puntoB(acuCategoria, categorias);
+   puntoC(acuCategoria);
+   puntoD(gastosPorDia);
    return 0;
 }

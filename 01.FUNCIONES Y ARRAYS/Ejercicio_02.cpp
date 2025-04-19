@@ -34,8 +34,6 @@ int quitarRepetidos(int vectorUno[], int vectorDos[], int tamanio) {
 
    return contador;  // Retorna la cantidad de elementos únicos
 };
-
-
 void mostrarVector(int vectorDos[],int elementos){
    for (int i = 0; i < elementos; i++)
    {
