@@ -40,6 +40,35 @@ using namespace std;
 int main()
 {
    setlocale(LC_ALL, "es_ES.UTF-8");
-  
+   
+   //Declaración de cariables
+   int album[50] = {0}; // Inicializa el álbum con 50 espacios en blanco
+   int paquete[5] = {0}; 
+   char tipo[5] = {' '}; // Tipo de figurita (C o H)
+   bool pegar[5] = {false}; // ¿Pegar en el álbum? (S/N)
+   float costoPaquete = 500.0; // Costo de cada paquete
+   float costoComunes = 20.0; // Costo de cada figurita común
+   float costoHologramas = 50.0; // Costo de cada figurita holograma
+   int comunesRepetidas = 0; // Contador de figuritas comunes repetidas
+   int hologramasRepetidas = 0; // Contador de hologramas
+   int numeroFigurita=0;
+   while(true){
+      cout << "Ingrese el número de paquete (0 para salir): ";
+      int numPaquete;
+      cin >> numPaquete;
+      if(numPaquete == 0) break; // Salir si el número de paquete es 0
+      for(int x = 0; x<5; x++){
+         cout << "Ingrese el número de figurita (1 a 50): ";
+         cin >> numeroFigurita;
+         if(numeroFigurita >= 1 && numeroFigurita <= 50){
+            paquete[x] = numeroFigurita; // Guardar el número de figurita
+         }else{
+            cout << "Número de figurita inválido. Debe estar entre 1 y 50." << endl;
+            x--; // Volver a pedir el número de figurita
+         }
+         
+      }
+   }
+
    return 0;
 }
