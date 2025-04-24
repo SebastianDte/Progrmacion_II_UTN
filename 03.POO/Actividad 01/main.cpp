@@ -28,38 +28,60 @@ using namespace std;
 // EXTRA:
 // Como reclutador quiero poder establecer los criterio de evaluación, edad mínima, edad máxima, experiencia mínima y puesto
 
-int main()
-{
-   setlocale(LC_ALL, "es_ES.UTF-8");
-      Evaluador evaluador;
-      Postulante postulante1, postulante2, postulante3;
-      // Cargar datos de postulantes
-      postulante1.cargarDatos("Juan Perez", 25, 3, "Programador");
-      postulante2.cargarDatos("Maria Lopez", 21, 1, "Tester");
-      postulante3.cargarDatos("Pedro Garcia", 30, 5, "Diseñador");
+#include <vector>
 
-      // Evaluar postulantes
-      evaluador.evaluar(postulante1);
-      evaluador.evaluar(postulante2);
-      evaluador.evaluar(postulante3);
 
-      // Mostrar resultados
-      cout << "Cantidad de postulantes evaluados: " << evaluador.getCantidadEvaluados() << endl;
-      cout << "Cantidad de postulantes rechazados: " << evaluador.getCantidadRechazados() << endl;
-      cout << "Postulante 1: " << postulante1.getNombre() << " - " << (evaluador.evaluar(postulante1) ? "Aprobado" : "Rechazado") << endl;
-      cout << "Postulante 2: " << postulante2.getNombre() << " - " << (evaluador.evaluar(postulante2) ? "Aprobado" : "Rechazado") << endl;
-      cout << "Postulante 3: " << postulante3.getNombre() << " - " << (evaluador.evaluar(postulante3) ? "Aprobado" : "Rechazado") << endl;
+int main() {
+    setlocale(LC_ALL, "es_ES.UTF-8");
+    Evaluador evaluador;
+    vector<Postulante> postulantes; // Contenedor dinámico para los postulantes
 
-      cout << "Postulante 1: " << endl;
-      postulante1.mostrarDatos();
-      cout << "Postulante 2: " << endl;
-      postulante2.mostrarDatos();
-      cout << "Postulante 3: " << endl;
-      postulante3.mostrarDatos();
-      cout << endl;
-      
-   return 0;
+    string nombre, puesto;
+    int edad, experiencia;
+    char continuar;
+
+    do {
+        cout << "Ingrese los datos del postulante:" << endl;
+
+        cout << "Nombre: ";
+        cin.ignore(); // Ignorar cualquier salto de línea pendiente
+        getline(cin, nombre);
+
+        cout << "Edad: ";
+        cin >> edad;
+
+        cout << "Años de experiencia: ";
+        cin >> experiencia;
+
+        cout << "Puesto al que aplica: ";
+        cin.ignore(); // Ignorar salto de línea pendiente
+        getline(cin, puesto);
+
+        // Crear un nuevo objeto Postulante y cargar los datos
+        Postulante nuevoPostulante;
+        nuevoPostulante.cargarDatos(nombre, edad, experiencia, puesto);
+
+        // Agregar el postulante al vector
+        postulantes.push_back(nuevoPostulante);
+
+        // Evaluar al postulante
+        evaluador.evaluar(nuevoPostulante);
+
+        cout << "¿Desea ingresar otro postulante? (s/n): ";
+        cin >> continuar;
+
+    } while (tolower(continuar) == 's'); // Continuar mientras el usuario diga 's'
+
+    // Mostrar resultados
+    cout << "\nCantidad de postulantes evaluados: " << evaluador.getCantidadEvaluados() << endl;
+    cout << "Cantidad de postulantes rechazados: " << evaluador.getCantidadRechazados() << endl;
+
+    // Mostrar los datos de todos los postulantes
+    for (size_t i = 0; i < postulantes.size(); ++i) {
+        cout << "\nPostulante " << i + 1 << ":" << endl;
+        postulantes[i].mostrarDatos();
+        cout << "Resultado: " << (evaluador.evaluar(postulantes[i]) ? "Aprobado" : "Rechazado") << endl;
+    }
+
+    return 0;
 }
-
-
-

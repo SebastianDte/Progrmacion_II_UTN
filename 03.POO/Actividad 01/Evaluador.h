@@ -7,9 +7,10 @@ private:
     int _cantidadEvaluados;
     int _cantidadRechazados;
 public:
+    Evaluador(); // Constructor para inicializar los contadores
     bool evaluar(Postulante postulante);
-    int getCantidadEvaluados() const;
-    int getCantidadRechazados() const;
+    int getCantidadEvaluados() ;
+    int getCantidadRechazados() ;
 };
 
 

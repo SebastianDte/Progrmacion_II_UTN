@@ -46,3 +46,5 @@ void Postulante::mostrarDatos() {
     std::cout << "Experiencia: " << getExperiencia() << std::endl;
     std::cout << "Puesto: " << getPuesto() << std::endl;
 }
+
+
