@@ -1,1 +1,10 @@
+#include <iostream>
+#include <locale>
+using namespace std;
 // Hacer una función que reciba un vector de enteros y su tamaño y luego muestre el vector ordenado de forma ascendente, tener en cuenta que el vector enviado como argumento no debe ser modificado.
+int main()
+{
+   setlocale(LC_ALL, "es_ES.UTF-8");
+   
+   return 0;
+}

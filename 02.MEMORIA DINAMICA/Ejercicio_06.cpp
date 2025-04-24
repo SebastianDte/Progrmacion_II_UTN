@@ -1,1 +1,12 @@
+#include <iostream>
+#include <locale>
+using namespace std;
+
 // Escribe un programa que solicite al usuario ingresar una lista de 10 números enteros. Luego, el programa debe mostrar los números pares distintos que se ingresaron. Para resolver este ejercicio, deberás implementar una función que reciba un vector de enteros y su tamaño, y que devuelva un puntero a un vector dinámico que contenga solo los números pares distintos del vector recibido.
+
+int main()
+{
+   setlocale(LC_ALL, "es_ES.UTF-8");
+   
+   return 0;
+}
