@@ -46,13 +46,53 @@
 
 #include <iostream>
 #include <locale>
+#include "funciones.h"
 using namespace std;
+
 
 int main()
 {
     setlocale(LC_ALL, "es_ES.UTF-8");
     
-    
-    
+    int puntos[4][4] = {0}; 
+    int opcion;
+    int jugador1,jugador2,puntosJ1,puntosJ2;
+
+    //menú de opciones
+    while (true) {
+        system("cls"); 
+        cout << "🏆 Menú del Torneo 🏆" << endl;
+        cout << "1 - Cargar Puntos" << endl;
+        cout << "2 - Mostrar Tabla" << endl;
+        cout << "3 - Reiniciar Campeonato" << endl;
+        cout << "0 - Salir" << endl;
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
+
+       switch (opcion)
+       {
+       case 1:
+       system("cls"); 
+       cargarPuntos(puntos,jugador1,jugador2,puntosJ1,puntosJ2);
+        break;
+       case 2:
+       system("cls"); 
+       mostrarTabla(puntos);
+       break;;
+       case 3:
+       system("cls"); 
+       reiniciarCampeonato(puntos);
+       break;
+       case 0:
+        cout << "Saliendo del programa..." << endl;
+        return 0;
+       default:
+       cout << "Opción no válida. Intente de nuevo." << endl;
+       pausa(); 
+       system("cls");
+        break;
+       }
+    }
+                
     return 0;
 }
