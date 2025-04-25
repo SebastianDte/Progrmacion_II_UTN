@@ -44,3 +44,15 @@
 // Un ciclo do-while con switch para manejar el menú.
 // Validaciones para evitar que un jugador se enfrente a sí mismo.
 
+#include <iostream>
+#include <locale>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "es_ES.UTF-8");
+    
+    
+    
+    return 0;
+}
