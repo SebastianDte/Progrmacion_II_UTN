@@ -51,5 +51,10 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "locale": "cpp"
-    }
+    },
+    "editor.mouseWheelScrollSensitivity": 0.1,
+    "terminal.integrated.mouseWheelScrollSensitivity": 0.05,
+    "workbench.list.mouseWheelScrollSensitivity": 0.04,
+    "typescript.preferGoToSourceDefinition": false,
+    "workbench.editor.mouseBackForwardToNavigate": false
 }
